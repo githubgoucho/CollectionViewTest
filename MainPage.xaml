@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectionViewTest.MainPage">
+
+    <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center"
+        HorizontalOptions="Center">
+        <Label Text="CollectionView.Header Test"
+               FontAttributes="Bold"
+               FontSize="40"/>
+        <CollectionView x:Name="LapTimeView" Grid.Row="2"
+            >
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout
+                Orientation="Vertical"
+                ItemSpacing="0" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.Header>
+                <Grid ColumnDefinitions="*,*,*" >
+                    <Label  Grid.Column="0" FontSize="22"
+                            Text="No."/>
+                    <Label Grid.Column="1" FontSize="22"
+                            Text="Lap time"/>
+                    <Label  Grid.Column="2" FontSize="22"
+                            Text="Total time"/>
+                </Grid>
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,*,*">
+                        <Label  Grid.Column="0"
+                        Margin="20,0"
+                        Text="{Binding LapCount}"
+                         />
+                        <Label    Grid.Column="1"
+                        Margin="20,0"
+                        Text="{Binding LapTime}"  />
+                        <Label  Grid.Column="2"
+                        Margin="20,0"
+                        Text="{Binding EndTime}"
+                             />
+                    </Grid>
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
